@@ -26,17 +26,25 @@ toQuestions = () => {
 }
 
 var toPartijen = () => {
-      document.getElementById('onderwerpenselect').hidden = true;
-      document.getElementById('partijenselect').hidden = false;
-      document.getElementById('vragen').hidden = true;
-      document.getElementById('results').hidden = true;
+  document.getElementById('onderwerpenselect').hidden = true;
+  document.getElementById('partijenselect').hidden = false;
+  document.getElementById('vragen').hidden = true;
+  document.getElementById('results').hidden = true;
 }
 
 var toResults = () => {
-    document.getElementById('onderwerpenselect').hidden = true;
-    document.getElementById('partijenselect').hidden = true;
-    document.getElementById('vragen').hidden = true;
-    document.getElementById('results').hidden = false;
+  document.getElementById('onderwerpenselect').hidden = true;
+  document.getElementById('partijenselect').hidden = true;
+  document.getElementById('vragen').hidden = true;
+  document.getElementById('results').hidden = false;
+}
+
+var search = (nameKey, myArray) => {
+  for (var i = 0; i < myArray.length; i++) {
+    if (myArray[i].name === nameKey) {
+      return i;
+    }
+  }
 }
 
 var question = () => {
@@ -47,10 +55,26 @@ var question = () => {
     document.getElementById('vragen').hidden = true;
     fillOnderwerpen();
     document.getElementById('winner').innerHTML = checkPartij()
+    let index = search(checkPartij(), parties);
+    console.log(index);
+    if (index === 23) {
+      var second = parties[index - 1]
+      var third = parties[index + 2]
+    } else if (index === 0) {
+      var second = parties[index + 1]
+      var third = parties[index + 2]
+    } else {
+      var second = parties[index - 1]
+      var third = parties[index + 1]
+    }
+    document.getElementById('second').innerHTML = second.name
+    document.getElementById('third').innerHTML = third.name
   } else {
     document.getElementById('question').innerHTML = item.statement
   }
 }
+
+
 
 var fillOnderwerpen = () => {
   subjects.forEach(item => {
