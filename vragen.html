@@ -13,14 +13,44 @@
 </head>
 
 <body onload="init()">
-  <div class="w3-row vragen">
+  <div class="w3-row vragen" id="vragen">
     <div class="w3-container w3-light-grey w3-full container">
       <h1 id='question'></h1>
-      <button onclick="answer('eens')">Eens</button>
-      <button onclick="answer('geen')">Geen van beide</button>
-      <button onclick="answer('oneens')">Oneens</button>
+      <button onclick="answer(1)">Eens</button>
+      <button onclick="answer(0)">Geen van beide</button>
+      <button onclick="answer(-1)">Oneens</button>
       <button onclick="back()">Terug</button>
       <button onclick="skip()">Sla deze vraag over</button>
+    </div>
+  </div>
+  <div class="w3-row" id="onderwerpenselect">
+    <div class="w3-container w3-light-grey w3-full container">
+      <h1>Zijn er onderwerpen die u extra belangrijk vindt?</h1>
+      <p>Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.</p>
+      <h1>Extra belangrijke onderwerpen</h1>
+      <button onclick="toQuestions()">Terug</button>
+      <button onclick="toPartijen()">Verder</button>
+      <div id="onderwerpen">
+      </div>
+    </div>
+  </div>
+  <div class="w3-row" id="partijenselect">
+    <div class="w3-container w3-light-grey w3-full container">
+      <h1>Welke partijen wilt u meenemen in het resultaat?</h1>
+      <p>U kunt kiezen voor zittende partijen, die nu in de Tweede Kamer vertegenwoordigd zijn. Daarbij nemen we
+        ook de partijen mee die in de peilingen op minimaal één zetel staan. U kunt alle partijen meenemen en u
+        kunt een eigen selectie maken van tenminste drie partijen.</p>
+      <button onclick="toResults()">Naar resultaten</button>
+      <button onclick="toOnderwerpen()">Naar onderwerpen</button>
+      <div id="partijen">
+      </div>
+    </div>
+  </div>
+  <div class="w3-row" id="results">
+    <div class="w3-container w3-light-grey w3-full container">
+      <h1>Resultaten</h1>
+      <button onclick="toPartijen()">Terug</button>
+      <div id="winner"></div>
     </div>
   </div>
 </body>

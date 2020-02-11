@@ -1,7 +1,11 @@
 let counter = 0;
-let points = 0;
+let points = [];
 
 var init = () => {
+  document.getElementById('onderwerpenselect').hidden = true;
+  document.getElementById('partijenselect').hidden = true;
+  document.getElementById('results').hidden = true;
+  document.getElementById('vragen').hidden = false;
   console.log(subjects)
   question()
 }
@@ -11,15 +15,50 @@ var back = () => {
   question();
 }
 
+var toOnderwerpen = () => {
+  document.getElementById('onderwerpenselect').hidden = false;
+  document.getElementById('partijenselect').hidden = true;
+}
+
+toQuestions = () => {
+  counter = 29;
+  init();
+}
+
+var toPartijen = () => {
+      document.getElementById('onderwerpenselect').hidden = true;
+      document.getElementById('partijenselect').hidden = false;
+      document.getElementById('vragen').hidden = true;
+      document.getElementById('results').hidden = true;
+}
+
+var toResults = () => {
+    document.getElementById('onderwerpenselect').hidden = true;
+    document.getElementById('partijenselect').hidden = true;
+    document.getElementById('vragen').hidden = true;
+    document.getElementById('results').hidden = false;
+}
+
 var question = () => {
   console.log(subjects)
   item = subjects[counter]
   if (item === undefined) {
-    console.log(points)
-    console.log(checkPartij(points))
+    document.getElementById('onderwerpenselect').hidden = false;
+    document.getElementById('vragen').hidden = true;
+    fillOnderwerpen();
+    document.getElementById('winner').innerHTML = checkPartij()
   } else {
     document.getElementById('question').innerHTML = item.statement
   }
+}
+
+var fillOnderwerpen = () => {
+  subjects.forEach(item => {
+    onderwerp = `<div><label for="${item.title}">${item.title}</label><input type="checkbox" id="${item.title}"><hr /></div>`
+    var div = document.createElement("div");
+    div.innerHTML = onderwerp
+    document.getElementById('onderwerpen').appendChild(div);
+  });
 }
 
 var skip = () => {
@@ -29,31 +68,20 @@ var skip = () => {
 
 var answer = (answer) => {
   subjects[counter].answer = answer;
-  switch (answer) {
-    case 'eens':
-      points++;
-      counter++;
-      question();
-      break;
-    case 'geen':
-      console.log('niks')
-      counter++;
-      question();
-      break;
-    case 'oneens':
-      points--;
-      counter++;
-      question();
-      break;
-
-    default:
-      console.log('error')
-      break;
-  }
+  counter++;
+  question();
 }
 
-var checkPartij = (punten) => {
+function myFunc(total, num) {
+  return total - num;
+}
+
+var checkPartij = () => {
   //-30 tot 30
+  points = [];
+  subjects.map(x => points.push(x.answer))
+  punten = points.reduce(myFunc)
+  console.log(punten)
   if (punten >= -30 && punten <= -28) {
     return 'VVD';
   } else if (punten > -28 && punten <= -26) {
