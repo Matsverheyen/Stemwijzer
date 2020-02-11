@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src='http://stemwijzer.dvc-icta.nl/data.js'></script>
+  <script src="script.js"></script>
+  <title>Stemwijzer</title>
+</head>
+
+<body onload="init()">
+  <div class="w3-row vragen">
+    <div class="w3-container w3-light-grey w3-full container">
+      <h1 id='question'></h1>
+      <button onclick="answer('eens')">Eens</button>
+      <button onclick="answer('geen')">Geen van beide</button>
+      <button onclick="answer('oneens')">Oneens</button>
+    </div>
+  </div>
+</body>
+
+</html>

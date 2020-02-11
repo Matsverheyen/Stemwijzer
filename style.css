@@ -18,6 +18,12 @@ body {
   transition: 0.1s ease-in-out all;
 }
 
+.vragen {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
 .stemwijzer {
   margin-left: 40px;
   margin-right: 40px;
@@ -25,5 +31,5 @@ body {
 }
 
 .container {
-  height: 800px;
+  height: 600px;
 }
