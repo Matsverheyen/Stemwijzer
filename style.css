@@ -1,0 +1,29 @@
+body {
+  background-image: url(./images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.partijen:hover {
+  transform: scale(1.15);
+}
+
+.partijen {
+  width: 20%;
+  height: 20%;
+  background-color: white;
+  margin: 2px;
+  transition: 0.1s ease-in-out all;
+}
+
+.stemwijzer {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.container {
+  height: 800px;
+}
