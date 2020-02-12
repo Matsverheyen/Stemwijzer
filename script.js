@@ -1,12 +1,14 @@
 let counter = 0;
 let points = [];
+let selectedParties = [];
 
 var init = () => {
+  fillPartijen();
+  fillOnderwerpen();
   document.getElementById('onderwerpenselect').hidden = true;
   document.getElementById('partijenselect').hidden = true;
   document.getElementById('results').hidden = true;
   document.getElementById('vragen').hidden = false;
-  console.log(subjects)
   question()
 }
 
@@ -47,13 +49,25 @@ var search = (nameKey, myArray) => {
   }
 }
 
+var inArray = (item, array) => {
+  if (array.indexOf(item) !== -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 var question = () => {
   console.log(subjects)
   item = subjects[counter]
   if (item === undefined) {
+    let winner;
+    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+    for (var i = 0; i < checkboxes.length; i++) {
+      selectedParties.push(checkboxes[i].value)
+    }
     document.getElementById('onderwerpenselect').hidden = false;
     document.getElementById('vragen').hidden = true;
-    fillOnderwerpen();
     document.getElementById('winner').innerHTML = checkPartij()
     let index = search(checkPartij(), parties);
     console.log(index);
@@ -70,15 +84,23 @@ var question = () => {
     document.getElementById('second').innerHTML = second.name
     document.getElementById('third').innerHTML = third.name
   } else {
+    document.getElementById('questionTitle').innerHTML = (counter +1)+". " + item.title
     document.getElementById('question').innerHTML = item.statement
   }
 }
 
-
+var fillPartijen = () => {
+  parties.forEach(item => {
+    party = `<input type="checkbox" id="${item.name}"><label for="${item.title}">${item.name}</label>`
+    var div = document.createElement("div");
+    div.innerHTML = party
+    document.getElementById('parties').appendChild(div);
+  });
+}
 
 var fillOnderwerpen = () => {
   subjects.forEach(item => {
-    onderwerp = `<div><label for="${item.title}">${item.title}</label><input type="checkbox" id="${item.title}"><hr /></div>`
+    onderwerp = `<input type="checkbox" id="${item.title}"><label for="${item.title}">${item.title}</label>`
     var div = document.createElement("div");
     div.innerHTML = onderwerp
     document.getElementById('onderwerpen').appendChild(div);
@@ -101,11 +123,9 @@ function myFunc(total, num) {
 }
 
 var checkPartij = () => {
-  //-30 tot 30
   points = [];
   subjects.map(x => points.push(x.answer))
   punten = points.reduce(myFunc)
-  console.log(punten)
   if (punten >= -30 && punten <= -28) {
     return 'VVD';
   } else if (punten > -28 && punten <= -26) {

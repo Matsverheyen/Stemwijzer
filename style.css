@@ -10,6 +10,109 @@ body {
   transform: scale(1.15);
 }
 
+.beperking {
+  display: flex;
+}
+
+.logo {
+  width: 350px;
+  margin-top: 20px;
+}
+
+.beperking>p {
+  margin-left: 10px;
+}
+
+.backbtn {
+  border: none;
+  padding: 30px;
+}
+
+.choiceBtns {
+  position: relative;
+  display: flex;
+  margin-left: 40px;
+}
+
+.choiceBtn {
+  background-color: black;
+  padding: 20px;
+  margin: 5px;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.arrow {
+  float: right;
+  margin-left: 20px;
+}
+
+.skiptxt {
+  display: inline;
+}
+
+.skipBtn {
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  margin: 5px;
+  margin-left: 200px;
+  color: black;
+  font-weight: bold;
+  border: none;
+}
+
+
+.choiceBtn:hover {
+  background-color: #2196F3;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.questions {
+  margin-left: 20px;
+}
+
+.backArrow {
+  width: 30px;
+}
+
+.backArrow:hover {
+  transform: scale(1.15);
+}
+
+#questionTitle {
+  color: black;
+  font-weight: 600;
+}
+
+.button {
+  margin-top: 30px;
+}
+
+.start {
+  padding: 20px 50px;
+  background-color: black;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#onderwerpen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .partijen {
   width: 20%;
   height: 20%;
@@ -18,16 +121,21 @@ body {
   transition: 0.1s ease-in-out all;
 }
 
+
 .vragen {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
 }
 
 .stemwijzer {
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 20px;
+}
+
+.containerpartijen {
+  height: 800px;
 }
 
 .container {
