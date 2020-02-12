@@ -57,15 +57,25 @@
       <ul id="parties">
       </ul>
     </div>
-    <div class="w3-row" id="results">
-      <div class="w3-container w3-light-grey w3-full container">
-        <h1>Resultaten</h1>
-        <button class="backbtn" onclick="toPartijen()"><img class="backArrow"
-            src="https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-arrow-back.svg" alt="back"></button>
-        <h1>Uw mening komt het best overeen met:</h1>
-        <div id="winner"></div>
-        <div id="second"></div>
-        <div id="third"></div>
+  </div>
+
+  <div class="w3-row vragen" id="results">
+    <div class="w3-container w3-light-grey w3-full container">
+      <button class="backbtn" onclick="toPartijen()"><img class="backArrow"
+          src="https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-arrow-back.svg" alt="back"></button>
+      <h1 class="w3-text-blue">Resultaten</h1>
+      <h1>Uw mening komt het best overeen met:</h1>
+      <div class="top3">
+      <div class="winner">
+        <img class="resultsimg" id="imgWinner" src="" alt="">
+        <h1 id="winner"></h1>
+      </div>
+      <div class="top2">
+      <h2 id="second">
+      </h2>
+      <h2 id="third">
+      </h2>
+      </div>
       </div>
     </div>
   </div>

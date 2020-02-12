@@ -6,6 +6,43 @@ body {
   padding: 0;
 }
 
+.top3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.top2 {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 10px;
+}
+
+  #second {
+    grid-column: span 1;
+    text-align: right;
+  }
+
+  #third {
+    grid-column: span 1;
+    text-align: left;
+  }
+
+
+.winner {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.resultsimg {
+  height: 100px;
+  width: 100px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
 .partijen:hover {
   transform: scale(1.15);
 }
