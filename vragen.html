@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="./style.css">
   <script src="parties.js"></script>
-  <script src='http://stemwijzer.dvc-icta.nl/data.js'></script>
+  <script src='http://stemwijzer.dvc-icta.nl/testdata.js'></script>
   <script src="script.js"></script>
   <title>Stemwijzer</title>
 </head>
@@ -55,6 +55,8 @@
         ook de partijen mee die in de peilingen op minimaal één zetel staan. U kunt alle partijen meenemen en u
         kunt een eigen selectie maken van tenminste drie partijen.</p>
       <button class="start" onclick="toResults()">Naar resultaten</button>
+      <button class="start" onclick="selectAll()">Selecteer alle</button>
+      <button class="start" onclick="deselectAll()">Selecteer niets</button>
       <ul id="parties">
       </ul>
     </div>

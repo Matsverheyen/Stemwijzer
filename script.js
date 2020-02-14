@@ -99,6 +99,20 @@ var fillOnderwerpen = () => {
   });
 }
 
+var deselectAll = (source) => {
+  checkboxes = document.getElementsByName('party');
+  for (var i = 0, n = checkboxes.length; i < n; i++) {
+    checkboxes[i].checked = false;
+  }
+}
+
+var selectAll = (source) => {
+  checkboxes = document.getElementsByName('party');
+  for (var i = 0, n = checkboxes.length; i < n; i++) {
+    checkboxes[i].checked = true;
+  }
+}
+
 var answer = (answer) => {
   subjects[counter].answer = answer;
   counter++;
