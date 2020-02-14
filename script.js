@@ -37,7 +37,7 @@ var toPartijen = () => {
 }
 
 var toResults = () => {
-  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+  var checkboxes = document.querySelectorAll('input[name=party]:checked')
   for (var i = 0; i < checkboxes.length; i++) {
     selectedParties.push(checkboxes[i].id)
   }
@@ -81,7 +81,7 @@ var CreateQuestion = () => {
 
 var fillPartijen = () => {
   parties.forEach(item => {
-    party = `<input type="checkbox" id="${item.name}"><label for="${item.name}">${item.name}</label>`
+    party = `<input type="checkbox" name="party" id="${item.name}"><label for="${item.name}">${item.name}</label>`
     var div = document.createElement("div");
     div.innerHTML = party
     document.getElementById('parties').appendChild(div);
@@ -95,11 +95,6 @@ var fillOnderwerpen = () => {
     div.innerHTML = onderwerp
     document.getElementById('onderwerpen').appendChild(div);
   });
-}
-
-var skip = () => {
-  counter++;
-  CreateQuestion();
 }
 
 var answer = (answer) => {
@@ -131,6 +126,8 @@ var checkPartij = () => {
     x.enabled = false
   })
   selectedParties.forEach(x => {
+    console.log(selectedParties);
+    console.log(parties)
     parties[search(x, parties)].enabled = true;
   })
   //console.log("selected", selectedParties);
@@ -143,11 +140,4 @@ var checkPartij = () => {
       }
     }
   }
-
-  // for subject.answer : subject
-  // for subject.parties : party
-  //party.position == subject.answer
-  //resultaten array
-
-
 }
