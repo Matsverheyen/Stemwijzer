@@ -13,8 +13,10 @@ var init = () => {
 }
 
 var back = () => {
-  counter--;
-  question();
+  if (counter !== 0) {
+    counter--;
+    question();
+  }
 }
 
 var toOnderwerpen = () => {
@@ -60,7 +62,6 @@ var inArray = (item, array) => {
 var question = () => {
   item = subjects[counter]
   if (item === undefined) {
-    let winner;
     var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
     for (var i = 0; i < checkboxes.length; i++) {
       selectedParties.push(checkboxes[i].value)
@@ -113,11 +114,12 @@ var skip = () => {
 
 var answer = (answer) => {
   subjects[counter].answer = answer;
+  console.log(subjects);
   counter++;
   question();
 }
 
-function myFunc(total, num) {
+var myFunc = (total, num) => {
   return total - num;
 }
 
@@ -125,6 +127,7 @@ var checkPartij = () => {
   points = [];
   subjects.map(x => points.push(x.answer))
   punten = points.reduce(myFunc)
+  console.log(punten);
   if (punten >= -30 && punten <= -28) {
     return { "name": "VVD", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vvd.svg"};
   } else if (punten > -28 && punten <= -26) {
