@@ -37,12 +37,12 @@ var toPartijen = () => {
 }
 
 var toResults = () => {
+  selectedParties = [];
   var checkboxes = document.querySelectorAll('input[name=party]:checked')
   for (var i = 0; i < checkboxes.length; i++) {
     selectedParties.push(checkboxes[i].id)
   }
   checkPartij();
-  console.log("asdasd", getWinner())
   var winner = partyConfig.parties.find(x => x.name == getWinner().name);
   document.getElementById('imgWinner').src = `https://tweedekamer2017.stemwijzer.nl/${winner.logo}`
   document.getElementById('winner').innerHTML = "1. " + winner.name
@@ -80,6 +80,7 @@ var CreateQuestion = () => {
 }
 
 var fillPartijen = () => {
+  document.getElementById('parties').innerHTML = "";
   parties.forEach(item => {
     party = `<input type="checkbox" name="party" id="${item.name}"><label for="${item.name}">${item.name}</label>`
     var div = document.createElement("div");
@@ -89,6 +90,7 @@ var fillPartijen = () => {
 }
 
 var fillOnderwerpen = () => {
+    document.getElementById('onderwerpen').innerHTML = "";
   subjects.forEach(item => {
     onderwerp = `<input type="checkbox" id="${item.title}"><label for="${item.title}">${item.title}</label>`
     var div = document.createElement("div");
@@ -99,7 +101,6 @@ var fillOnderwerpen = () => {
 
 var answer = (answer) => {
   subjects[counter].answer = answer;
-  //console.log(subjects);
   counter++;
   CreateQuestion();
 }
@@ -109,10 +110,7 @@ var myFunc = (total, num) => {
 }
 
 var getWinner = () => {
-const arr = parties.filter(item => item.enabled !== false);
-    //console.log("123", arr)
-    //console.log("231", Math.max(...arr.map(o => o.counter), 0))
-  //console.log("aaa", arr.find(el => el.counter == Math.max(...arr.map(o => o.counter), 0)))
+  const arr = parties.filter(item => item.enabled !== false);
   return arr.find(el => el.counter == Math.max(...arr.map(o => o.counter), 0))
 }
 
@@ -126,16 +124,13 @@ var checkPartij = () => {
     x.enabled = false
   })
   selectedParties.forEach(x => {
-    console.log(selectedParties);
-    console.log(parties)
     parties[search(x, parties)].enabled = true;
   })
-  //console.log("selected", selectedParties);
   for (let x = 0; x < subjects.length; x++) {
     for (let j = 0; j < subjects[x].parties.length; j++) {
       if (points[x] === subjects[x].parties[j].position) {
         if (parties[search(subjects[x].parties[j].name, parties)].enabled) {
-         parties[search(subjects[x].parties[j].name, parties)].counter++;
+          parties[search(subjects[x].parties[j].name, parties)].counter++;
         }
       }
     }
