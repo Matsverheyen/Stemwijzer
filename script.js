@@ -24,7 +24,7 @@ var toOnderwerpen = () => {
   document.getElementById('partijenselect').hidden = true;
 }
 
-toQuestions = () => {
+var toQuestions = () => {
   counter--;
   init();
 }
@@ -91,7 +91,7 @@ var question = () => {
 
 var fillPartijen = () => {
   parties.forEach(item => {
-    party = `<input type="checkbox" id="${item.name}"><label for="${item.title}">${item.name}</label>`
+    party = `<input type="checkbox" id="${item.name}"><label for="${item.name}">${item.name}</label>`
     var div = document.createElement("div");
     div.innerHTML = party
     document.getElementById('parties').appendChild(div);
