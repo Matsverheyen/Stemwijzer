@@ -25,7 +25,7 @@ var toOnderwerpen = () => {
 }
 
 toQuestions = () => {
-  counter = 29;
+  counter--;
   init();
 }
 
@@ -128,54 +128,54 @@ var checkPartij = () => {
   subjects.map(x => points.push(x.answer))
   punten = points.reduce(myFunc)
   console.log(punten);
-  if (punten >= -30 && punten <= -28) {
-    return { "name": "VVD", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vvd.svg"};
-  } else if (punten > -28 && punten <= -26) {
-    return { "name": "CDA", "img": "https://tweedekamer2017.stemwijzer.nl/logos/cda.svg" };
-  } else if (punten > -26 && punten <= -24) {
-    return { "name": "PVV", "img": "https://tweedekamer2017.stemwijzer.nl/logos/pvv.svg" };
-  } else if (punten > -24 && punten <= -22) {
-    return { "name": "D66", "img": "https://tweedekamer2017.stemwijzer.nl/logos/d66.svg" };
-  } else if (punten > -22 && punten <= -20) {
-    return { "name": "GroenLinks", "img": "https://tweedekamer2017.stemwijzer.nl/logos/groenlinks.svg" };
-  } else if (punten > -20 && punten <= -18) {
-    return { "name": "SP", "img": "https://tweedekamer2017.stemwijzer.nl/logos/sp.svg" };
-  } else if (punten > -18 && punten <= -16) {
-    return { "name": "PvDa", "img": "https://tweedekamer2017.stemwijzer.nl/logos/pvda.svg" };
-  } else if (punten > -16 && punten <= -14) {
-    return { "name": "ChristenUnie", "img": "https://tweedekamer2017.stemwijzer.nl/logos/christenunie.svg" };
-  } else if (punten > -14 && punten <= -12) {
-    return { "name": "Partij voor de Dieren", "img": "https://tweedekamer2017.stemwijzer.nl/logos/pvdd.svg" };
-  } else if (punten > -12 && punten <= -9) {
-    return { "name": "SGP", "img": "https://tweedekamer2017.stemwijzer.nl/logos/sgp.svg" };
-  } else if (punten > -9 && punten <= -7) {
-    return { "name": "Forum voor Democratie", "img": "https://tweedekamer2017.stemwijzer.nl/logos/forumvoordemocratie.png" };
-  } else if (punten > -7 && punten <= -4) {
-    return { "name": "Lokaal in de Kamer", "img": "https://tweedekamer2017.stemwijzer.nl/logos/lokaalindekamer.svg" };
-  } else if (punten > -4 && punten <= 0) {
-    return { "name": "OndernemersPartij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/ondernemerspartij.png" };
-  } else if (punten > 0 && punten <= 2) {
-    return { "name": "VNL", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vnl.svg" };
-  } else if (punten > 3 && punten <= 5) {
-    return { "name": "Nieuwe Wegen", "img": "https://tweedekamer2017.stemwijzer.nl/logos/nieuwewegen.png" };
-  } else if (punten > 5 && punten <= 7) {
-    return { "name": "De Burger Beweging", "img": "https://tweedekamer2017.stemwijzer.nl/logos/burgerbeweging%20(2).png" };
-  } else if (punten > 7 && punten <= 10) {
-    return { "name": "Piratenpartij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/piratenpartij.svg" };
-  } else if (punten > 10 && punten <= 15) {
-    return { "name": "Artikel 1", "img": "https://tweedekamer2017.stemwijzer.nl/logos/artikel1.png" };
-  } else if (punten > 15 && punten <= 18) {
-    return { "name": "Libertarische Partij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/libertarischepartij.svg" };
-  } else if (punten > 18 && punten <= 20) {
-    return { "name": "50Plus", "img": "https://tweedekamer2017.stemwijzer.nl/logos/50plus.svg" };
-  } else if (punten > 20 && punten <= 24) {
-    return { "name": "Vrijzinnige Partij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vrijzinnigepartij.png" };
-  } else if (punten > 24 && punten <= 27) {
-    return { "name": "Libertarische Partij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/libertarischepartij.svg" };
-  } else if (punten > 27 && punten <= 30) {
-    return { "name": "Niet Stemmers", "img": "https://tweedekamer2017.stemwijzer.nl/logos/nietstemmers.svg" };
-  } else {
-    return 'error'
-  }
+  // if (punten >= -30 && punten <= -28) {
+  //   return { "name": "VVD", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vvd.svg"};
+  // } else if (punten > -28 && punten <= -26) {
+  //   return { "name": "CDA", "img": "https://tweedekamer2017.stemwijzer.nl/logos/cda.svg" };
+  // } else if (punten > -26 && punten <= -24) {
+  //   return { "name": "PVV", "img": "https://tweedekamer2017.stemwijzer.nl/logos/pvv.svg" };
+  // } else if (punten > -24 && punten <= -22) {
+  //   return { "name": "D66", "img": "https://tweedekamer2017.stemwijzer.nl/logos/d66.svg" };
+  // } else if (punten > -22 && punten <= -20) {
+  //   return { "name": "GroenLinks", "img": "https://tweedekamer2017.stemwijzer.nl/logos/groenlinks.svg" };
+  // } else if (punten > -20 && punten <= -18) {
+  //   return { "name": "SP", "img": "https://tweedekamer2017.stemwijzer.nl/logos/sp.svg" };
+  // } else if (punten > -18 && punten <= -16) {
+  //   return { "name": "PvDa", "img": "https://tweedekamer2017.stemwijzer.nl/logos/pvda.svg" };
+  // } else if (punten > -16 && punten <= -14) {
+  //   return { "name": "ChristenUnie", "img": "https://tweedekamer2017.stemwijzer.nl/logos/christenunie.svg" };
+  // } else if (punten > -14 && punten <= -12) {
+  //   return { "name": "Partij voor de Dieren", "img": "https://tweedekamer2017.stemwijzer.nl/logos/pvdd.svg" };
+  // } else if (punten > -12 && punten <= -9) {
+  //   return { "name": "SGP", "img": "https://tweedekamer2017.stemwijzer.nl/logos/sgp.svg" };
+  // } else if (punten > -9 && punten <= -7) {
+  //   return { "name": "Forum voor Democratie", "img": "https://tweedekamer2017.stemwijzer.nl/logos/forumvoordemocratie.png" };
+  // } else if (punten > -7 && punten <= -4) {
+  //   return { "name": "Lokaal in de Kamer", "img": "https://tweedekamer2017.stemwijzer.nl/logos/lokaalindekamer.svg" };
+  // } else if (punten > -4 && punten <= 0) {
+  //   return { "name": "OndernemersPartij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/ondernemerspartij.png" };
+  // } else if (punten > 0 && punten <= 2) {
+  //   return { "name": "VNL", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vnl.svg" };
+  // } else if (punten > 3 && punten <= 5) {
+  //   return { "name": "Nieuwe Wegen", "img": "https://tweedekamer2017.stemwijzer.nl/logos/nieuwewegen.png" };
+  // } else if (punten > 5 && punten <= 7) {
+  //   return { "name": "De Burger Beweging", "img": "https://tweedekamer2017.stemwijzer.nl/logos/burgerbeweging%20(2).png" };
+  // } else if (punten > 7 && punten <= 10) {
+  //   return { "name": "Piratenpartij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/piratenpartij.svg" };
+  // } else if (punten > 10 && punten <= 15) {
+  //   return { "name": "Artikel 1", "img": "https://tweedekamer2017.stemwijzer.nl/logos/artikel1.png" };
+  // } else if (punten > 15 && punten <= 18) {
+  //   return { "name": "Libertarische Partij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/libertarischepartij.svg" };
+  // } else if (punten > 18 && punten <= 20) {
+  //   return { "name": "50Plus", "img": "https://tweedekamer2017.stemwijzer.nl/logos/50plus.svg" };
+  // } else if (punten > 20 && punten <= 24) {
+  //   return { "name": "Vrijzinnige Partij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/vrijzinnigepartij.png" };
+  // } else if (punten > 24 && punten <= 27) {
+  //   return { "name": "Libertarische Partij", "img": "https://tweedekamer2017.stemwijzer.nl/logos/libertarischepartij.svg" };
+  // } else if (punten > 27 && punten <= 30) {
+  //   return { "name": "Niet Stemmers", "img": "https://tweedekamer2017.stemwijzer.nl/logos/nietstemmers.svg" };
+  // } else {
+  //   return 'error'
+  // }
 
 }
