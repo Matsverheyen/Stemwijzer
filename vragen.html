@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="./style.css">
-  <script src='http://stemwijzer.dvc-icta.nl/data.js'></script>
+  <script src="parties.js"></script>
+  <script src='http://stemwijzer.dvc-icta.nl/testdata.js'></script>
   <script src="script.js"></script>
   <title>Stemwijzer</title>
 </head>
@@ -22,9 +23,9 @@
         <h1 id="question"></h1>
       </div>
       <div class="choiceBtns">
-        <button class="choiceBtn" onclick="answer(1)">Eens</button>
-        <button class="choiceBtn" onclick="answer(0)">Geen van beide</button>
-        <button class="choiceBtn" onclick="answer(-1)">Oneens</button>
+        <button class="choiceBtn" onclick="answer('pro')">Eens</button>
+        <button class="choiceBtn" onclick="answer('none')">Geen van beide</button>
+        <button class="choiceBtn" onclick="answer('contra')">Oneens</button>
         <button class="skipBtn" onclick="skip()">
           <p class="skiptxt">Sla deze vraag over</p><img class="arrow"
             src="https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-backspace-right.svg" alt="">
