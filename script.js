@@ -2,6 +2,8 @@ let counter = 0;
 let points = [];
 let selectedParties = [];
 
+
+//roept wat standaard functies aan en zet de schermen op hidden
 var init = () => {
   fillPartijen();
   fillOnderwerpen();
@@ -12,6 +14,7 @@ var init = () => {
   CreateQuestion()
 }
 
+//Hiet ga je een vraag terug dus gaat de counter ook 1tje terug
 var back = () => {
   if (counter !== 0) {
     counter--;
@@ -19,16 +22,19 @@ var back = () => {
   }
 }
 
+//hier ga je naar het selecteren van onderwerpen
 var toOnderwerpen = () => {
   document.getElementById('onderwerpenselect').hidden = false;
   document.getElementById('partijenselect').hidden = true;
 }
 
+//hier ga je terug naar de vragen
 var toQuestions = () => {
   counter--;
   init();
 }
 
+//hier ga je naar het selecteren van partijen
 var toPartijen = () => {
   document.getElementById('onderwerpenselect').hidden = true;
   document.getElementById('partijenselect').hidden = false;
@@ -36,6 +42,7 @@ var toPartijen = () => {
   document.getElementById('results').hidden = true;
 }
 
+//hier ga je naar de resultaten en wordt de winnaar bekent gemaakt
 var toResults = () => {
   selectedParties = [];
   var checkboxes = document.querySelectorAll('input[name=party]:checked')
@@ -52,6 +59,7 @@ var toResults = () => {
   document.getElementById('results').hidden = false;
 }
 
+//dit is een zoekfuncties voor objecten in arrays
 var search = (nameKey, myArray) => {
   for (var i = 0; i < myArray.length; i++) {
     if (myArray[i].name === nameKey) {
@@ -60,6 +68,7 @@ var search = (nameKey, myArray) => {
   }
 }
 
+//Dit is een functie om te kijken of er een item in een array zit
 var inArray = (item, array) => {
   if (array.indexOf(item) !== -1) {
     return true;
@@ -68,6 +77,8 @@ var inArray = (item, array) => {
   }
 }
 
+
+//deze functie maakt de vragen aan en zet de vragen in het beeld
 var CreateQuestion = () => {
   item = subjects[counter]
   if (item === undefined) {
@@ -79,6 +90,7 @@ var CreateQuestion = () => {
   }
 }
 
+//dit zorgt ervoor dat de checkboxes worden gevuld met de partijen
 var fillPartijen = () => {
   document.getElementById('parties').innerHTML = "";
   parties.forEach(item => {
@@ -88,7 +100,7 @@ var fillPartijen = () => {
     document.getElementById('parties').appendChild(div);
   });
 }
-
+//dit zorgt ervoor dat de checkboxes worden gevuld met de onderwerpen
 var fillOnderwerpen = () => {
     document.getElementById('onderwerpen').innerHTML = "";
   subjects.forEach(item => {
@@ -99,35 +111,45 @@ var fillOnderwerpen = () => {
   });
 }
 
-var deselectAll = (source) => {
+//deze functie is om alle partijen te deselecteren
+var deselectAll = () => {
   checkboxes = document.getElementsByName('party');
   for (var i = 0, n = checkboxes.length; i < n; i++) {
     checkboxes[i].checked = false;
   }
 }
 
-var selectAll = (source) => {
+
+//hiermee select je alle partijen
+var selectAll = () => {
   checkboxes = document.getElementsByName('party');
   for (var i = 0, n = checkboxes.length; i < n; i++) {
     checkboxes[i].checked = true;
   }
 }
 
+//dit slaat het antwoord op
 var answer = (answer) => {
   subjects[counter].answer = answer;
   counter++;
   CreateQuestion();
 }
 
+
+//dit haal een nummer van het totaal af
 var myFunc = (total, num) => {
   return total - num;
 }
 
+
+//dit laat de winnaar zien
 var getWinner = () => {
   const arr = parties.filter(item => item.enabled !== false);
   return arr.find(el => el.counter == Math.max(...arr.map(o => o.counter), 0))
 }
 
+
+//hier wordt gekeken wie de winaar is
 var checkPartij = () => {
   points = [];
   subjects.forEach(x => {
